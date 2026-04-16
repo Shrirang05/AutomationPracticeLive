@@ -76,6 +76,14 @@ public class RegisterUserSteps {
 	    public void user_clicks_on_signup_button() {
 	        loginPage.clickOnSignUp();
 	    }
+	    
+	    @Then("Verify signup error {string} is visible")
+	    public void verify_error_is_visible(String expectedText)
+	    {
+	    	String actualText = loginPage.validateSignupText();
+	    	Assert.assertEquals(actualText, expectedText);
+	    }
+	    
 
 	    @Then("User should see ENTER ACCOUNT INFORMATION section")
 	    public void user_should_see_enter_account_information_section() {

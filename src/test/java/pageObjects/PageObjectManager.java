@@ -10,6 +10,7 @@ public class PageObjectManager {
    public AccountDeletePage acctdeletedpage;
    public CartPage cartpage;
    public PaymentPage paymentpage;
+   public ContactUsPage contactuspage;
    
    public WebDriver driver;
 
@@ -55,7 +56,11 @@ public class PageObjectManager {
     	 return paymentpage;
      }
      
-     
+     public ContactUsPage getcontactuspage()
+     {
+    	 contactuspage = new ContactUsPage(driver);
+    	 return contactuspage;
+     }
      
 	
 }

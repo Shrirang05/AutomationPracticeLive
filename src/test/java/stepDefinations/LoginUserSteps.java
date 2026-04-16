@@ -1,8 +1,12 @@
 package stepDefinations;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -80,4 +84,17 @@ public class LoginUserSteps {
         String actualText = accountDeletedPage.acctdeletemsg();
         Assert.assertEquals(actualText, "ACCOUNT DELETED!");
     }
+    
+    @When ("User enters name and email")
+    public void User_enters_name_and_email(DataTable table)
+    {
+        List<Map<String, String>> data = table.asMaps(String.class,String.class);	
+        String name = data.get(0).get("Name");
+        String email = data.get(0).get("Email");        
+    	loginpage.signUp(name, email);
+    }
+    
+    
+    
+    
 }

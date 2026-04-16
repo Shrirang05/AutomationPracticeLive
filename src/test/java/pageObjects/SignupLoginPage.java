@@ -47,6 +47,9 @@ public class SignupLoginPage {
 	@FindBy(xpath="//form[@action='/login']//p")
 	private WebElement ValidateLoginText;
 	
+	@FindBy(xpath="//form[@action='/signup']//p")
+	private WebElement validateSignUpText;
+	
 	
 	public void clickOnLoginButton()
 	{
@@ -91,6 +94,12 @@ public class SignupLoginPage {
 	{
 		String logintext = ValidateLoginText.getText();
 		return logintext;
+	}
+	
+	public String validateSignupText()
+	{
+		String signuptext = validateSignUpText.getText();	
+		return signuptext;
 	}
 	
 	
